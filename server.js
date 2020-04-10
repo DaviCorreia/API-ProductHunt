@@ -11,15 +11,13 @@ const requireDir = require('require-dir');
 const app = express();
 
 // iniciando o BD
-mongoose.connect('mongodb://localhost:27017/nodeapi',{ useNewUrlParser: true, useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true });
-
+mongoose.connect('mongodb://localhost:27017/nodeapi',{ useNewUrlParser: true,  useCreateIndex: true,useUnifiedTopology: true });
+//const client = new MongoClient('mongodb://localhost:27017/nodeapi', { useNewUrlParser: true,  useCreateIndex: true,UnifiedTopology: true });
 
 requireDir('./src/moldes'); 
 
-//Acessar a rota , rota raiz "/",funções de requisição ao servidor , a resposta que vai se dar a requisição
-app.get('/',(req,rest)=>{
-  rest.send("Hello DAVI desenvolvendo em NodeJS");
-})
+//rotas
+app.use('/api',require('./src/routes'));
 
 //Aplicação usar porta 3001
 app.listen(3001);
