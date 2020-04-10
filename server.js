@@ -11,7 +11,7 @@ const requireDir = require('require-dir');
 const app = express();
 
 // iniciando o BD
-mongoose.connect('mongodb://localhost:27017/nodeapi',{ useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/nodeapi',{ useNewUrlParser: true, useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true });
 
 
 requireDir('./src/moldes'); 
